@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.01 252.14); /* Off-white */
+  --foreground: oklch(0.205 0.01 258.55); /* Dark Blue/Black */
+  
+  /* --- FIX: Changed card to pure white for better contrast --- */
+  --card: oklch(1 0 0); /* Pure White */
+  --card-foreground: oklch(0.205 0.01 258.55);
+  --popover: oklch(1 0 0); /* Pure White */
+  --popover-foreground: oklch(0.205 0.01 258.55);
+  
+  --primary: oklch(0.63 0.16 185.13); /* Teal */
+  --primary-foreground: oklch(0.98 0 0); /* Almost White */
+  --secondary: oklch(0.97 0.02 178.24); /* Very Light Teal */
+  --secondary-foreground: oklch(0.205 0.01 258.55);
+  --muted: oklch(0.97 0.02 178.24);
+  --muted-foreground: oklch(0.51 0.02 253.33); /* Muted Blue */
+  --accent: oklch(0.97 0.02 178.24);
+  --accent-foreground: oklch(0.205 0.01 258.55);
+  --destructive: oklch(0.68 0.22 25.01); /* Red */
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.94 0.01 252.14); /* Light Gray */
+  --input: oklch(0.94 0.01 252.14); /* Light Gray */
+  --ring: oklch(0.63 0.16 185.13);
+}
+
+.dark {
+  --background: oklch(0.205 0.01 258.55); /* Dark Blue/Black */
+  --foreground: oklch(0.86 0.02 248.57); /* Light Gray/Blue */
+  --card: oklch(0.27 0.02 259.62); /* Darker Blue */
+  --card-foreground: oklch(0.86 0.02 248.57);
+  --popover: oklch(0.27 0.02 259.62);
+  --popover-foreground: oklch(0.86 0.02 248.57);
+  --primary: oklch(0.7 0.18 175); /* Bright Teal */
+  --primary-foreground: oklch(0.205 0.01 258.55);
+  --secondary: oklch(0.27 0.02 259.62);
+  --secondary-foreground: oklch(0.86 0.02 248.57);
+  --muted: oklch(0.27 0.02 259.62);
+  --muted-foreground: oklch(0.67 0.01 254.38); /* Grayish Blue */
+  --accent: oklch(0.27 0.02 259.62);
+  --accent-foreground: oklch(0.86 0.02 248.57);
+  --destructive: oklch(0.45 0.16 25.01); /* Darker Red */
+  --destructive-foreground: oklch(0.98 0 0);
+  /* --- FIX: Made the border color lighter than the background --- */
+  --border: oklch(0.30 0.02 259.62); /* Slightly Lighter Dark Blue */
+  --input: oklch(0.30 0.02 259.62); /* Slightly Lighter Dark Blue */
+  --ring: oklch(0.7 0.18 175);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-['Inter',_sans-serif];
+  }
+}
+
+@layer components {
+  .message-user {
+    @apply bg-primary text-primary-foreground ml-8 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl;
+  }
+ 
+  .message-ai {
+    @apply bg-secondary text-secondary-foreground mr-8 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl;
+  }
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); */
