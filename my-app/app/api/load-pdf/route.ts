@@ -84,3 +84,10 @@ const docs = await splitter.splitDocuments(docsWithMetadata);
     }, { status: 500 });
   }
 }
+
+export async function GET() {
+  return NextResponse.json({
+    success: true,
+    message: "✅ load-pdf endpoint is live"
+  });
+}

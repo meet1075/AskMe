@@ -82,3 +82,9 @@ export async function POST(request:NextRequest){
         },{status:500}) 
     }
 }
+export async function GET() {
+  return NextResponse.json({
+    success: true,
+    message: "✅ load-text endpoint is live"
+  });
+}
