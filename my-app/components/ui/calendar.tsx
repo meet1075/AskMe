@@ -42,10 +42,10 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         day_hidden: "invisible",
         ...classNames,
       }}
-      icons={{
-        left: () => <ChevronLeft className="h-4 w-4" />,
-        right: () => <ChevronRight className="h-4 w-4" />,
-      }}
+      components={{
+        ChevronLeft: () => <ChevronLeft className="h-4 w-4" />,
+        ChevronRight: () => <ChevronRight className="h-4 w-4" />,
+      } as any}
       {...props}
     />
   )
