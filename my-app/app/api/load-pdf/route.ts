@@ -63,8 +63,9 @@ const docs = await splitter.splitDocuments(docsWithMetadata);
     });
 
     await QdrantVectorStore.fromDocuments(docs, embeddings, {
-      url: process.env.QDRANT_URL || "http://localhost:6333",
-      collectionName: process.env.QDRANT_COLLECTION || "chaicode_v1",
+      url: process.env.QDRANT_END_URL || "https://9fb91843-4ee4-49da-8452-835b74d7974f.us-east-1-1.aws.cloud.qdrant.io",
+      collectionName: process.env.COLLECTION_NAME || "chaicode-assistant",
+      apiKey:process.env.QDRANT_API_KEY
     });
 
     return NextResponse.json({

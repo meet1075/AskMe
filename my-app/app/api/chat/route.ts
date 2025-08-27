@@ -46,8 +46,9 @@ async function retrieveChunks(query: string, k = 5): Promise<Document[] | null> 
             apiKey: process.env.GEMINI_API_KEY,
         });
         const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings, {
-            url: process.env.QDRANT_URL || "http://localhost:6333",
-            collectionName: process.env.COLLECTION_NAME || "chaicode_v1"
+            url: process.env.QDRANT_END_URL || "https://9fb91843-4ee4-49da-8452-835b74d7974f.us-east-1-1.aws.cloud.qdrant.io",
+            collectionName: process.env.COLLECTION_NAME || "chaicode-assistant",
+            apiKey:process.env.QDRANT_API_KEY
         });
         const retriever = vectorStore.asRetriever({ k });
         const chunks = await retriever.invoke(query);
